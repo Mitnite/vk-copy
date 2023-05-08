@@ -14,6 +14,7 @@ const Posts: FC = () => {
   const {db, currentUser} = useAuth()
 
 
+
   useEffect(() => {
 
     const unsub = (way: string) => onSnapshot(collection(db, `posts-${way}`), doc => {
@@ -33,7 +34,7 @@ const Posts: FC = () => {
     }
 
 
-  }, [currentUser])
+  }, [posts, db])
 
   return (
 

@@ -1,4 +1,4 @@
-import React, {FC, useEffect, useState} from "react";
+import React, {FC, useLayoutEffect, useState} from "react";
 import {IPost} from "../../../type";
 import {useAuth} from "../../providers/UseAuth";
 import {onSnapshot, collection} from 'firebase/firestore'
@@ -15,12 +15,12 @@ const Posts: FC = () => {
 
 
 
-  useEffect(() => {
+  useLayoutEffect(() => {
 
     const unsub = (way: string) => onSnapshot(collection(db, `posts-${way}`), doc => {
 
       console.log(doc)
-      
+
       doc.forEach((d: any) => {
         setPosts(prev => [d.data(), ...prev])
 

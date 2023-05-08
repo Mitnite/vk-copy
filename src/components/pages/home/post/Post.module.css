@@ -1,0 +1,31 @@
+.addLike{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+
+}
+.like {
+    background-image: url("../../../img/like.png");
+    background-color: rgba(0, 125, 215, 0.01);
+    height: 25px;
+    width: 25px;
+    background-size: 100%;
+    border: 0;
+    cursor: pointer;
+    transition: background-image .4s;
+    display: block;
+    margin: 5px;
+}
+
+.liked {
+    background-image: url("../../../img/liked.png");
+    background-color: rgba(0, 125, 215, 0.01);
+    height: 25px;
+    width: 25px;
+    background-size: 100%;
+    border: 0;
+    cursor: pointer;
+    transition: background-image .4s;
+    display: block;
+    margin: 5px;
+}

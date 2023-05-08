@@ -31,12 +31,12 @@ const Posts: FC = () => {
       })
 
     })
-    return () => {
+
       currentUser?.friends?.forEach( (friendId: any) => {
         console.log("РАЗ")
          unsub(friendId)
       })
-    }
+
   }, [])
 
   console.log('ЧЕТЫРЕ = ' + currentUser)

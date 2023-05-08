@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/vk-copy/static/css/main.190a67a5.css",
-    "main.js": "/vk-copy/static/js/main.1fc22cb1.js",
+    "main.js": "/vk-copy/static/js/main.ff8329ab.js",
     "static/media/vk-logo.png": "/vk-copy/static/media/vk-logo.5f04f8116f4138ee911f.png",
     "index.html": "/vk-copy/index.html",
     "main.190a67a5.css.map": "/vk-copy/static/css/main.190a67a5.css.map",
-    "main.1fc22cb1.js.map": "/vk-copy/static/js/main.1fc22cb1.js.map"
+    "main.ff8329ab.js.map": "/vk-copy/static/js/main.ff8329ab.js.map"
   },
   "entrypoints": [
     "static/css/main.190a67a5.css",
-    "static/js/main.1fc22cb1.js"
+    "static/js/main.ff8329ab.js"
   ]
 }

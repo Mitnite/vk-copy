@@ -2,6 +2,7 @@
   "name": "vk-copy",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://Mitnite.github.io/vk-copy",
   "dependencies": {
     "@emotion/react": "^11.11.0",
     "@emotion/styled": "^11.11.0",
@@ -15,6 +16,7 @@
     "@types/react": "^18.2.5",
     "@types/react-dom": "^18.0.0",
     "firebase": "^9.21.0",
+    "gh-pages": "^5.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.11.1",
@@ -23,6 +25,8 @@
     "web-vitals": "^2.1.0"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

@@ -17,9 +17,15 @@ const Posts: FC = () => {
 
   useLayoutEffect(() => {
 
+    console.log('ПЯТЬ')
+
     const unsub =  (way: string) =>  onSnapshot(collection(db, `posts-${way}`), doc => {
 
+      console.log('ДВА')
+
       doc.forEach((d: any) => {
+        console.log('ТРИ')
+        console.log(d.data())
         setPosts(prev => [d.data(), ...prev])
 
       })
@@ -27,12 +33,13 @@ const Posts: FC = () => {
     })
     return () => {
       currentUser?.friends?.forEach( (friendId: any) => {
+        console.log("РАЗ")
          unsub(friendId)
       })
     }
   }, [])
 
-  console.log(currentUser)
+  console.log('ЧЕТЫРЕ = ' + currentUser)
 
   return (
 

@@ -19,7 +19,8 @@ const Posts: FC = () => {
 
     const unsub = (way: string) => onSnapshot(collection(db, `posts-${way}`), doc => {
 
-
+      console.log(doc)
+      
       doc.forEach((d: any) => {
         setPosts(prev => [d.data(), ...prev])
 
@@ -34,7 +35,7 @@ const Posts: FC = () => {
     }
 
 
-  }, [posts, db])
+  }, [])
 
   return (
 

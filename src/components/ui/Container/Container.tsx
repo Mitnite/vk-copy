@@ -1,5 +1,4 @@
 import React, {FC, PropsWithChildren} from "react";
-import {ChildrenProps} from "../../../type";
 import styles from './Container.module.css'
 
 interface ContainerProps{

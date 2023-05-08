@@ -1,5 +1,5 @@
 import React, {FC} from "react";
-import {Avatar, Box, Card, List, ListItem, ListItemButton, ListItemIcon, ListItemText} from "@mui/material";
+import {Avatar, Box, Card} from "@mui/material";
 import {Link} from "react-router-dom";
 import {IUser} from "../../../type";
 import Button from "../../ui/Button/Button";

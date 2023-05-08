@@ -1,4 +1,4 @@
-import React, {FC, SyntheticEvent, useState} from "react";
+import React, {FC} from "react";
 
 
 const Conversation: FC = () => {

@@ -1,10 +1,10 @@
 import React, {FC, KeyboardEvent, SyntheticEvent, useEffect, useState} from "react";
 import {ButtonGroup, TextField, Grid, Alert} from "@mui/material";
 import {IUserData} from "../../../type";
-import {getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile} from 'firebase/auth'
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile} from 'firebase/auth'
 import {useAuth} from "../../providers/UseAuth";
 import {useNavigate} from "react-router-dom";
-import {setDoc, collection, doc} from "firebase/firestore";
+import {setDoc,  doc} from "firebase/firestore";
 import Button from "../../ui/Button/Button";
 
 const Auth: FC = () => {

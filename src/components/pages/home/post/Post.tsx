@@ -2,7 +2,7 @@ import React, {FC, useEffect, useState} from "react";
 import {Link} from "react-router-dom";
 import {Avatar, Box, ImageListItem} from "@mui/material";
 import {IPost, IUser} from "../../../../type";
-import {setDoc, collection, onSnapshot, doc} from "firebase/firestore";
+import {collection, onSnapshot} from "firebase/firestore";
 import {useAuth} from "../../../providers/UseAuth";
 import styles from './Post.module.css'
 

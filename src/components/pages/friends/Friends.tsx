@@ -2,7 +2,7 @@ import React, {FC, useEffect, useState} from "react";
 import Container from "../../ui/Container/Container";
 import {useAuth} from "../../providers/UseAuth";
 import {collection, doc, onSnapshot, setDoc} from "firebase/firestore";
-import {IPost, IUser} from "../../../type";
+import {IUser} from "../../../type";
 import Friend from "./Friend";
 import {Alert} from "@mui/material";
 
@@ -12,7 +12,7 @@ const Friends: FC = () => {
 
   const [friendId, setFriendId] = useState<IUser[] | null>()
 
-  const {db, user, currentUser} = useAuth()
+  const {db, currentUser} = useAuth()
 
   const [error, setError] = useState(false)
 

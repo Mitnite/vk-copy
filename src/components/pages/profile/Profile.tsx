@@ -1,9 +1,9 @@
 import React, {FC, SyntheticEvent, useEffect, useState} from "react";
 import Container from "../../ui/Container/Container";
 import {useParams} from "react-router-dom";
-import {onSnapshot, collection, addDoc, doc, setDoc} from "firebase/firestore";
+import {onSnapshot, collection, doc, setDoc} from "firebase/firestore";
 import {useAuth} from "../../providers/UseAuth";
-import {IPost, IUser, IUserData} from "../../../type";
+import {IPost, IUser} from "../../../type";
 import Post from "../home/post/Post";
 import AddPost from "../home/post/AddPost";
 import {Alert, Avatar, IconButton, TextField} from "@mui/material";

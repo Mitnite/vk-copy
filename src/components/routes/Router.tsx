@@ -1,6 +1,6 @@
 import React, {FC} from "react";
 
-import {BrowserRouter, Routes, Route} from 'react-router-dom';
+import {Routes, Route, HashRouter} from 'react-router-dom';
 
 import {routes} from './dataRoutes'
 import Layout from "../layout/Layout";
@@ -15,7 +15,7 @@ const Router: FC = () => {
   const {user} = useAuth()
 
   return (
-      <BrowserRouter>
+      <HashRouter>
         <Layout>
           <Routes>
             {routes.map(route => {
@@ -28,7 +28,7 @@ const Router: FC = () => {
             })}
           </Routes>
         </Layout>
-      </BrowserRouter>
+      </HashRouter>
   )
 }
 export default Router

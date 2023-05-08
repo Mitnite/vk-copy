@@ -4,6 +4,7 @@ import Messages from "../pages/messages/Messages";
 import Profile from "../pages/profile/Profile";
 import Message from "../pages/messages/Conversation";
 import Friends from "../pages/friends/Friends";
+import NotFound from "../pages/noFound/NotFound";
 
 export const routes = [
   {
@@ -35,5 +36,9 @@ export const routes = [
     path: '/friends',
     component: Friends,
     auth: true
+  },
+  {
+    path: '/*',
+    component: NotFound,
   }
 ]

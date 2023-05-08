@@ -87,7 +87,7 @@ const Post: FC<PostProps> = ({post}) => {
 
               <p>{post.content}</p>
               {post.images?.length ? (
-                  <ImageListItem sx={{marginBottom: 2}}>
+                  <ImageListItem sx={{marginBottom: 2, width: 350, height: 350}}>
                     <img src={post.images} alt=""
                          loading='lazy'
                     />

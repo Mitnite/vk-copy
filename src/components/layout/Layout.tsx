@@ -12,15 +12,18 @@ const Layout: FC<PropsWithChildren<ChildrenProps>> = ({children}) => {
   return (
       <>
         <Header/>
-        <Grid container spacing={2} paddingX={5} marginTop='7px'>
+        <Grid container  sx={{maxWidth: '1440px', margin: '75px auto'}}>
+          <Grid item md={1}/>
           {user &&
-              <Grid item md={3}>
+              <Grid item md={2}>
                 <SideBar/>
               </Grid>
           }
-          <Grid item md={user ? 9 : 12}>
+          <Grid item md={user ? 8 : 12}>
             {children}
           </Grid>
+          <Grid item md={1}/>
+
         </Grid>
       </>
   )

@@ -55,7 +55,7 @@ const AddPost: FC<IAddPost> = () => {
           () => {
             getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
               // @ts-ignore
-              setUrl( downloadURL)
+              setUrl(downloadURL)
             });
           }
       );
@@ -67,23 +67,26 @@ const AddPost: FC<IAddPost> = () => {
 
   const addPostHandler = async (e: SyntheticEvent<HTMLFormElement>) => {
     e.preventDefault()
+    if (content.length === 0) {
 
-    if (user) {
+    } else {
+      if (user) {
 
-      try {
-        await setDoc(doc(db, `posts-${user._id}`, `${user._id}-${date.getDay()} ${monthNames[date.getMonth()]} в ${date.getHours()}:${date.getMinutes()}`), {
-          author: user._id,
-          content,
-          createdAt: `${date.getDay() + 7} ${monthNames[date.getMonth()]} в ${date.getHours()}:${date.getMinutes()}`,
-          liked: 0,
-          images: url
-        })
-      } catch (e: any) {
-        setError(e)
-        console.log(e)
+        try {
+          await setDoc(doc(db, `posts-${user._id}`, `${user._id}-${date.getDay()} ${monthNames[date.getMonth()]} в ${date.getHours()}:${date.getMinutes()}`), {
+            author: user._id,
+            content,
+            createdAt: `${date.getDay() + 7} ${monthNames[date.getMonth()]} в ${date.getHours()}:${date.getMinutes()}`,
+            liked: 0,
+            images: url
+          })
+        } catch (e: any) {
+          setError(e)
+          console.log(e)
+        }
+
+        setContent('')
       }
-
-      setContent('')
     }
   }
 
@@ -98,6 +101,13 @@ const AddPost: FC<IAddPost> = () => {
           flexDirection: 'column'
         }}>
           <form onSubmit={addPostHandler}>
+            <Button component="label" sx={{margitRight: '15px'}}>
+              Прикрепить фото
+              <CameraAltOutlinedIcon/>
+              <input hidden accept="image/*" type="file"
+                  // @ts-ignore
+                     onChange={(e) => setFile(e.target.files[0])}/>
+            </Button>
             <TextField
                 label='Что у Вас нового?'
                 variant='outlined'
@@ -111,15 +121,9 @@ const AddPost: FC<IAddPost> = () => {
                 value={content}
 
             />
-            <div style={{marginTop: 15}}>
-              <Button component="label" sx={{margitRight: '15px'}}>
-                Прикрепить фото
-                <CameraAltOutlinedIcon />
-                <input hidden accept="image/*" type="file"
-                    // @ts-ignore
-                       onChange={(e) => setFile(e.target.files[0])}/>
-              </Button>
-              <Button variant="contained" type={"submit"} disabled={per !== 0 && per < 100}
+            <div style={{marginTop: 10}}>
+
+              <Button variant="outlined" type={"submit"} disabled={per !== 0 && per < 100}
               > Добавить новость </Button>
             </div>
           </form>

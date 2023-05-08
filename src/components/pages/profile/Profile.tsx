@@ -154,72 +154,69 @@ const Profile: FC = () => {
           {error && <Alert severity="error" style={{marginBottom: 20}}>{error}</Alert>}
           {user?._id === id ?
               <div style={{display: "flex", justifyContent: 'left', alignItems: "center"}}>
-                <Avatar src={userId?.avatar} alt="avatar"
-                        sx={{width: 146, height: 146, borderRadius: '50%'}}
-                />
-                <div style={{marginLeft: 50}}>
-                  {userId &&
-                      <>
-                        <form onSubmit={editUserHandler}
-                              style={{display: "flex", justifyContent: 'center', alignItems: "center"}}>
-                          <div>
 
-                            <div>
-                              <IconButton color="primary" aria-label="upload picture" component="label">
-                                <input hidden accept="image/*" type="file"
-                                    // @ts-ignore
-                                       onChange={(e) => setFile(e.target.files[0])}
-                                />
-                                <PhotoCamera/>
-                              </IconButton>
-                            </div>
-                            <TextField
-                                label='Ваши ФИО'
-                                variant='outlined'
-                                required
-                                InputProps={{
-                                  sx: {borderRadius: '15px', backgroundColor: 'white'}
-                                }}
-                                sx={{
-                                  width: '75%'
-                                }}
-                                value={userId.name}
-                                onChange={e => setUserId({...userId, name: e.target.value})}
-                            />
-                            <TextField
-                                label='Ваш возраст'
-                                variant='outlined'
-                                InputProps={{
-                                  sx: {borderRadius: '15px', backgroundColor: 'white'}
-                                }}
-                                sx={{
-                                  width: '75%', marginTop: '15px'
-                                }}
-                                value={userId?.age}
-                                onChange={e => setUserId({...userId, age: e.target.value})}
-                            />
-                            <TextField
-                                label='Ваш город'
-                                variant='outlined'
-                                InputProps={{
-                                  sx: {borderRadius: '15px', backgroundColor: 'white'}
-                                }}
-                                sx={{
-                                  width: '75%', marginTop: '15px'
-                                }}
-                                value={userId?.city}
-                                onChange={e => setUserId({...userId, city: e.target.value})}
-                            />
-                          </div>
-                          <div style={{display: 'block', margin: '0 auto'}}>
+                {userId &&
+
+                    <form onSubmit={editUserHandler}>
+                      <div style={{display: "flex", justifyContent: 'center', alignItems: "start"}}>
+                        <div>
+                          <Avatar src={userId?.avatar} alt="avatar"
+                                  sx={{width: 146, height: 146, borderRadius: '50%'}}
+                          />
+                          <div style={{display: 'block', margin: '10px auto', width: '100px'}}>
                             <Button text={'Изменить'} isSubmit={true} isDisabled={true} disabled={per}/>
                           </div>
-                        </form>
-                      </>
+                        </div>
+                        <div style={{marginTop: 35}}>
+                          <IconButton color="primary" aria-label="upload picture" component="label">
+                            <input hidden accept="image/*" type="file"
+                                // @ts-ignore
+                                   onChange={(e) => setFile(e.target.files[0])}
+                            />
+                            <PhotoCamera/>
+                          </IconButton>
+                        </div>
+                        <TextField
+                            label='Ваши ФИО'
+                            variant='outlined'
+                            required
+                            InputProps={{
+                              sx: {borderRadius: '15px', backgroundColor: 'white'}
+                            }}
+                            sx={{
+                              width: '75%', marginRight: '5px', marginTop: '25px'
+                            }}
+                            value={userId.name}
+                            onChange={e => setUserId({...userId, name: e.target.value})}
+                        />
+                        <TextField
+                            label='Ваш возраст'
+                            variant='outlined'
+                            InputProps={{
+                              sx: {borderRadius: '15px', backgroundColor: 'white'}
+                            }}
+                            sx={{
+                              width: '75%', marginRight: '5px', marginTop: '25px'
+                            }}
+                            value={userId?.age}
+                            onChange={e => setUserId({...userId, age: e.target.value})}
+                        />
+                        <TextField
+                            label='Ваш город'
+                            variant='outlined'
+                            InputProps={{
+                              sx: {borderRadius: '15px', backgroundColor: 'white'}
+                            }}
+                            sx={{
+                              width: '75%', marginTop: '25px'
+                            }}
+                            value={userId?.city}
+                            onChange={e => setUserId({...userId, city: e.target.value})}
+                        />
+                      </div>
 
-
-                  }
-                </div>
+                    </form>
+                }
               </div>
               :
               <div style={{display: "flex", justifyContent: 'left'}}>

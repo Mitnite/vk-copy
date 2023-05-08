@@ -36,9 +36,5 @@ export const routes = [
     path: '/friends',
     component: Friends,
     auth: true
-  },
-  {
-    path: '/*',
-    component: NotFound,
   }
 ]

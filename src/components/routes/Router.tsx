@@ -8,27 +8,28 @@ import {useAuth} from "../providers/UseAuth";
 import Auth from "../pages/auth/Auth";
 
 
-
 const Router: FC = () => {
 
 
   const {user} = useAuth()
 
   return (
-      <HashRouter>
-        <Layout>
-          <Routes>
-            {routes.map(route => {
-              if (route.auth && !user) {
-                return <Route key={`route /auth`} path='/' element={<Auth />}/>
-              }
-              return (
-                  <Route key={`route ${route.path}`} path={route.path} element={<route.component/>}/>
-              )
-            })}
-          </Routes>
-        </Layout>
-      </HashRouter>
+      <div>
+        <HashRouter>
+          <Layout>
+            <Routes>
+              {routes.map(route => {
+                if (route.auth && !user) {
+                  return <Route key={`route /auth`} path='/' element={<Auth/>}/>
+                }
+                return (
+                    <Route key={`route ${route.path}`} path={route.path} element={<route.component/>}/>
+                )
+              })}
+            </Routes>
+          </Layout>
+        </HashRouter>
+      </div>
   )
 }
 export default Router

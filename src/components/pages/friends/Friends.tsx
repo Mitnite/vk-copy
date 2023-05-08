@@ -54,6 +54,8 @@ const Friends: FC = () => {
   }, [currentUser])
 
   const editFriendHandler = async (arrayFriends: any) => {
+    const ava = currentUser?.avatar || ''
+    console.log(ava)
     try {
       await setDoc(doc(db, 'users', `${currentUser?._id}`), {
         _id: currentUser?._id,
@@ -61,7 +63,7 @@ const Friends: FC = () => {
         age: currentUser?.age,
         city: currentUser?.city,
         friends: arrayFriends,
-        avatar: currentUser?.avatar
+        avatar: ava
       })
 
     } catch (error: any) {

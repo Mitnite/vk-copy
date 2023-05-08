@@ -21,23 +21,25 @@ const Header: FC = () => {
 
   return (
       <header className={styles.header}>
-        <div style={{display: 'flex', justifyContent: 'left', width: '75%'}}>
-          <div className={styles['image-wrapper']} onClick={handleClick}>
-            <img src={logo} alt=""/>
-            <span>ВКОНТАКТЕ</span>
+        <div className={styles.headerContainer}>
+          <div style={{display: 'flex', justifyContent: 'left', width: '75%'}}>
+            <div className={styles['image-wrapper']} onClick={handleClick}>
+              <img src={logo} alt=""/>
+              <span>ВКОНТАКТЕ</span>
+            </div>
+            {user &&
+                <div className={styles.wrapper}>
+                  {search.length === 0 &&
+                      <Search/>
+                  }
+                  <input type={"text"} placeholder={'Поиск'} value={search} onChange={e => setSearch(e.target.value)}/>
+
+                </div>
+            }
           </div>
           {user &&
-              <div className={styles.wrapper}>
-                {search.length === 0 &&
-                    <Search/>
-                }
-                <input type={"text"} placeholder={'Поиск'} value={search} onChange={e => setSearch(e.target.value)}/>
-
-              </div>
-          }
+              <User/>}
         </div>
-        {user &&
-            <User/>}
       </header>
   )
 }

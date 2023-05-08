@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/vk-copy/static/css/main.abcd4302.css",
+    "main.js": "/vk-copy/static/js/main.12df6545.js",
+    "static/media/vk-logo.png": "/vk-copy/static/media/vk-logo.5f04f8116f4138ee911f.png",
+    "index.html": "/vk-copy/index.html",
+    "main.abcd4302.css.map": "/vk-copy/static/css/main.abcd4302.css.map",
+    "main.12df6545.js.map": "/vk-copy/static/js/main.12df6545.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.abcd4302.css",
+    "static/js/main.12df6545.js"
+  ]
+}

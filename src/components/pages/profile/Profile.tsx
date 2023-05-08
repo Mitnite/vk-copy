@@ -10,7 +10,7 @@ import {Alert, Avatar, IconButton, TextField} from "@mui/material";
 import Button from "../../ui/Button/Button";
 import {getStorage, ref, uploadBytesResumable, getDownloadURL} from "firebase/storage";
 import {users} from "../../layout/sidebar/dataUsers";
-import { PhotoCamera } from "@mui/icons-material";
+import {PhotoCamera} from "@mui/icons-material";
 
 const Profile: FC = () => {
 
@@ -23,7 +23,7 @@ const Profile: FC = () => {
   const [isFriend, setIsFriend] = useState(false)
   const [per, setPer] = useState(0)
   const [file, setFile] = useState("")
-
+  const [url, setUrl] = useState('')
   useEffect(() => {
     const upLoadFile = () => {
       const storage = getStorage();
@@ -53,7 +53,7 @@ const Profile: FC = () => {
           () => {
             getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
               // @ts-ignore
-              setUserId(prev => ({...prev, avatar: downloadURL}))
+              setUrl(downloadURL)
             });
           }
       );
@@ -104,7 +104,7 @@ const Profile: FC = () => {
         age: userId?.age,
         city: userId?.city,
         friends: userId?.friends,
-        avatar: userId?.avatar
+        avatar: url
       })
 
     } catch (error: any) {
@@ -170,7 +170,7 @@ const Profile: FC = () => {
                                     // @ts-ignore
                                        onChange={(e) => setFile(e.target.files[0])}
                                 />
-                                <PhotoCamera />
+                                <PhotoCamera/>
                               </IconButton>
                             </div>
                             <TextField
@@ -213,9 +213,6 @@ const Profile: FC = () => {
                           </div>
                           <div style={{display: 'block', margin: '0 auto'}}>
                             <Button text={'Изменить'} isSubmit={true} isDisabled={true} disabled={per}/>
-
-                            {/*<button  disabled={per !== 0 && per < 100} type={"submit"}>Изменить</button>*/}
-
                           </div>
                         </form>
                       </>

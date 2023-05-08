@@ -17,7 +17,7 @@ const Posts: FC = () => {
 
     const unsub = (way: string) => onSnapshot(collection(db, `posts-${way}`), doc => {
 
-      console.log('Its work')
+      console.log(way)
 
       doc.forEach((d: any) => {
         setPosts(prev => [d.data(), ...prev])

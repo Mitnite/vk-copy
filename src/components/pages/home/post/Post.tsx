@@ -2,7 +2,7 @@ import React, {FC, useEffect, useState} from "react";
 import {Link} from "react-router-dom";
 import {Avatar, Box, ImageListItem} from "@mui/material";
 import {IPost, IUser} from "../../../../type";
-import {collection, onSnapshot} from "firebase/firestore";
+import {collection, onSnapshot, setDoc, doc} from "firebase/firestore";
 import {useAuth} from "../../../providers/UseAuth";
 import styles from './Post.module.css'
 
@@ -36,7 +36,7 @@ const Post: FC<PostProps> = ({post}) => {
 
   const addLikeHandler = async () => {
     setIsLiked(!isLiked)
-/*    let like
+    let like
     if (!isLiked) like = post.liked + 1
     else like = post.liked - 1
     try {
@@ -51,7 +51,7 @@ const Post: FC<PostProps> = ({post}) => {
     } catch (e: any) {
       setError(e)
       console.log(e)
-    }*/
+    }
   }
 
 

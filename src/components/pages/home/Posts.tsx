@@ -14,39 +14,27 @@ const Posts: FC = () => {
   const {db, currentUser} = useAuth()
 
 
-
   useLayoutEffect(() => {
 
-    console.log('ПЯТЬ')
 
-    const unsub =  (way: string) =>  onSnapshot(collection(db, `posts-${way}`), doc => {
-
-      console.log('ДВА')
-
+    const unsub = (way: string) => onSnapshot(collection(db, `posts-${way}`), doc => {
       doc.forEach((d: any) => {
-        console.log('ТРИ')
-        console.log(d.data())
         setPosts(prev => [d.data(), ...prev])
-
       })
-
     })
-
-      currentUser?.friends?.forEach( (friendId: any) => {
-        console.log("РАЗ")
-         unsub(friendId)
-      })
+    currentUser?.friends?.forEach((friendId: any) => {
+      unsub(friendId)
+    })
 
   }, [])
 
-  console.log('ЧЕТЫРЕ = ' + currentUser)
 
   return (
 
       <>
         {posts?.length > 0 ? posts.map((post, index) => (
                 <Container key={`Post-${index}`}>
-                  <Post post={post} />
+                  <Post post={post}/>
                 </Container>
             )
         ) : <Container>Новостей пока нет</Container>

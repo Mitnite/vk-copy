@@ -98,7 +98,7 @@ const Post: FC<PostProps> = ({post}) => {
 
               <div className={styles.addLike}>
                 <div className={isLiked ? styles.liked : styles.like} onClick={addLikeHandler}/>
-                <span>{isLiked ? `${post.liked+1}` : post.liked}</span>
+                <span>{post.liked}</span>
               </div>
             </>
         }

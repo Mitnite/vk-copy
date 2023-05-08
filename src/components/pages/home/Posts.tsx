@@ -39,7 +39,7 @@ const Posts: FC = () => {
   return (
 
       <>
-        {posts && posts?.length > 0 ? posts.map((post, index) => (
+        {posts?.length > 0 ? posts.map((post, index) => (
                 <Container key={`Post-${index}`}>
                   <Post post={post} />
                 </Container>

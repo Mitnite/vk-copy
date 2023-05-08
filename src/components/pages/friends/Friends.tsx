@@ -60,7 +60,8 @@ const Friends: FC = () => {
         name: currentUser?.name,
         age: currentUser?.age,
         city: currentUser?.city,
-        friends: arrayFriends
+        friends: arrayFriends,
+        avatar: currentUser?.avatar
       })
 
     } catch (error: any) {

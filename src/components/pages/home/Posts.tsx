@@ -17,24 +17,22 @@ const Posts: FC = () => {
 
   useLayoutEffect(() => {
 
-    const unsub = async (way: string) => await onSnapshot(collection(db, `posts-${way}`), doc => {
+    const unsub =  (way: string) =>  onSnapshot(collection(db, `posts-${way}`), doc => {
 
       doc.forEach((d: any) => {
-        console.log(doc)
         setPosts(prev => [d.data(), ...prev])
 
       })
 
     })
     return () => {
-      currentUser?.friends?.forEach(async (friendId: any) => {
-        await unsub(friendId)
-
+      currentUser?.friends?.forEach( (friendId: any) => {
+         unsub(friendId)
       })
     }
-
-
   }, [])
+
+  console.log(currentUser)
 
   return (
 

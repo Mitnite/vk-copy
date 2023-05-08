@@ -4,12 +4,10 @@ import {useAuth} from "../../providers/UseAuth";
 import {onSnapshot, collection} from 'firebase/firestore'
 import Container from "../../ui/Container/Container";
 import Post from "./post/Post";
-import {useParams} from "react-router-dom";
 
 
 const Posts: FC = () => {
 
-  const {id} = useParams()
 
   const [posts, setPosts] = useState<IPost[]>([])
 
@@ -19,6 +17,7 @@ const Posts: FC = () => {
   useEffect(() => {
 
     const unsub = (way: string) => onSnapshot(collection(db, `posts-${way}`), doc => {
+
 
       doc.forEach((d: any) => {
         setPosts(prev => [d.data(), ...prev])
@@ -34,7 +33,7 @@ const Posts: FC = () => {
     }
 
 
-  }, [id])
+  }, [currentUser])
 
   return (
 
